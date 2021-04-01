@@ -9,13 +9,13 @@
             display: flex;
             width: 32.5em;
             background-color: #1d1d27;
+            margin-top: 10em;
         }
         .menuitem{
             all:unset;
             border: 0;
             border-radius: 50%;
-            padding-left: 0.55em ;
-
+            margin-left: 1.5em ;
         }
         .icon{
             width: 2.6em;
@@ -24,10 +24,17 @@
             stroke-dasharray: 400;
             stroke-linecap: round;
             stroke-linejoin: round;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .icon .active {
-            animation: move 1.5s reverse;
+         .active {
+             animation: move 1.5s reverse;
+             transform: translate3d(0,-.4em,0) scale(1.2);
+             background-color: coral;
+             z-index: 999;
+             border-radius: 50%;
         }
 
         .svg_container{
@@ -38,10 +45,12 @@
             clip-path: url(#menu);
             position:absolute;
             left: 0;
-            bottom:99%;
-            width: 10.9em;
-            height: 3em;
+            bottom:82%;
+            width: 11.5em;
+            height: 2.7em;
             background-color: #1d1d27;
+            z-index: -1;
+            transform: scale(0.0049285362247413 0.021978021978022);
         }
         @keyframes move {
             100%{
@@ -59,22 +68,45 @@
             <path d="M3.8,17.6h16.4" ></path>
         </svg>
     </button>
+    <button class="menuitem">
+        <svg class="icon" viewBox="0 0 24 24">
+            <path d="M3.8,9.6h16.4" ></path>
+            <path d="M3.8,13.6h16.4"></path>
+            <path d="M3.8,17.6h16.4" ></path>
+        </svg>
+    </button>
+
     <div class="menu_border">
     </div>
 </div>
 <div class="svg_container">
     <svg viewBox="0 0 202.9 45.5" style="stroke-width: 1pt;stroke: #1d1d27">
-          <clipPath id="menu" clip-path="objectBoundingBox" transform="scale(0.0049285362247413 0.021978021978022)">
+          <clipPath id="menu" clip-path="objectBoundingBox" transform="scale(0.52,0.52)">
             <path d="M6.7,45.5c5.7,0.1,14.1-0.4,23.3-4c5.7-2.3,9.9-5,18.1-10.5c10.7-7.1,11.8-9.2,20.6-14.3c5-2.9,9.2-5.2,15.2-7
           c7.1-2.1,13.3-2.3,17.6-2.1c4.2-0.2,10.5,0.1,17.6,2.1c6.1,1.8,10.2,4.1,15.2,7c8.8,5,9.9,7.1,20.6,14.3c8.3,5.5,12.4,8.2,
-          18.1,10.5c9.2,3.6,17.6,4.2,23.3,4H6.7z">
-
+          18.1,10.5c9.2,3.6,17.6,4.2,23.3,4H6.7z" >
             </path>
           </clipPath>
     </svg>
 </div>
 <script>
-
+    let border=document.querySelector('.menu_border')
+    let activeItem=null;
+    let clickHandler=function (event){
+        if(event.target.tagName==="path")
+            return ;
+        if(activeItem)
+            activeItem.classList.remove('active')
+        event.target.classList.add('active')
+        let offsetLocation=event.target.getBoundingClientRect()
+        border.style.left=`${Math.floor(offsetLocation.left-offsetLocation.width/2)}px`
+        activeItem=event.target
+    }
+    let list=document.querySelectorAll(".menuitem")
+    list=Array.from(list)
+    list.forEach((value)=>{
+        value.onclick=clickHandler
+    })
 </script>
 </body>
 </html>
