@@ -4,12 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style type="text/css">
-        @keyframes stroke {
-            100%{
-                stroke-dashoffset: 20;
-            }
 
-        }
         .menu{
             display: flex;
             width: 32.5em;
@@ -26,7 +21,32 @@
             width: 2.6em;
             height: 2.6em;
             stroke:white;
-            animation: stroke 1.5s reverse;
+            stroke-dasharray: 400;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .icon .active {
+            animation: move 1.5s reverse;
+        }
+
+        .svg_container{
+            height: 0;
+            width: 0;
+        }
+        .menu_border{
+            clip-path: url(#menu);
+            position:absolute;
+            left: 0;
+            bottom:99%;
+            width: 10.9em;
+            height: 3em;
+            background-color: #1d1d27;
+        }
+        @keyframes move {
+            100%{
+                stroke-dashoffset:400;
+            }
         }
     </style>
 </head>
@@ -34,11 +54,27 @@
 <div class="menu">
     <button class="menuitem">
         <svg class="icon" viewBox="0 0 24 24">
-            <path d="M3.8,9.6h16.4"></path>
+            <path d="M3.8,9.6h16.4" ></path>
             <path d="M3.8,13.6h16.4"></path>
-            <path d="M3.8,17.6h16.4"></path>
+            <path d="M3.8,17.6h16.4" ></path>
         </svg>
     </button>
+    <div class="menu_border">
+    </div>
 </div>
+<div class="svg_container">
+    <svg viewBox="0 0 202.9 45.5" style="stroke-width: 1pt;stroke: #1d1d27">
+          <clipPath id="menu" clip-path="objectBoundingBox" transform="scale(0.0049285362247413 0.021978021978022)">
+            <path d="M6.7,45.5c5.7,0.1,14.1-0.4,23.3-4c5.7-2.3,9.9-5,18.1-10.5c10.7-7.1,11.8-9.2,20.6-14.3c5-2.9,9.2-5.2,15.2-7
+          c7.1-2.1,13.3-2.3,17.6-2.1c4.2-0.2,10.5,0.1,17.6,2.1c6.1,1.8,10.2,4.1,15.2,7c8.8,5,9.9,7.1,20.6,14.3c8.3,5.5,12.4,8.2,
+          18.1,10.5c9.2,3.6,17.6,4.2,23.3,4H6.7z">
+
+            </path>
+          </clipPath>
+    </svg>
+</div>
+<script>
+
+</script>
 </body>
 </html>
