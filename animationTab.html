@@ -4,19 +4,39 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style type="text/css">
+        @keyframes stroke {
+            100%{
+                stroke-dashoffset: 20;
+            }
+
+        }
         .menu{
             display: flex;
+            width: 32.5em;
+            background-color: #1d1d27;
         }
         .menuitem{
-            width: 32.5em;
+            all:unset;
+            border: 0;
+            border-radius: 50%;
+            padding-left: 0.55em ;
+
+        }
+        .icon{
+            width: 2.6em;
+            height: 2.6em;
+            stroke:white;
+            animation: stroke 1.5s reverse;
         }
     </style>
 </head>
 <body>
 <div class="menu">
     <button class="menuitem">
-        <svg>
-            <path d=""></path>
+        <svg class="icon" viewBox="0 0 24 24">
+            <path d="M3.8,9.6h16.4"></path>
+            <path d="M3.8,13.6h16.4"></path>
+            <path d="M3.8,17.6h16.4"></path>
         </svg>
     </button>
 </div>
