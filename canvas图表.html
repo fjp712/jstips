@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="chart"></div>
+
+<script src="createGraph.js">
+</script>
+<script>
+    let node=document.getElementsByClassName('chart')
+    let fCharts=new Fcharts()
+    fCharts.addDocument(node[0])
+    fCharts.addData([[60,100],[80,20]])
+    fCharts.setOptions({lineWidth:5})
+</script>
+
+</body>
+</html>
