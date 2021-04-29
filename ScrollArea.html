@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #ScrollArea{
+            background-color: rgb(220,192,97);
+            height: 400px;
+            width: 300px;
+            overflow-y: hidden;
+        }
+        .inner{
+            background-color: coral;
+            height: 600px;
+            width: 280px;
+
+        }
+        #scroll{
+            position: absolute;
+            background-color: aqua;
+            height: 400px;
+            width: 15px;
+            top:0;
+            left: 285px;
+            z-index: 1;
+        }
+        #slider{
+            width: 15px;
+            height: 40px;
+            background-color: beige;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="ScrollArea">
+        <div class="inner"></div>
+    </div>
+    <div id="scroll">
+        <div id="slider"></div>
+    </div>
+    <script src="Scroll.js"></script>
+    <script>
+       let fscroll=new FScroll('ScrollArea','slider',"scroll",1)
+       fscroll.setSpeed(3)
+    </script>
+</body>
+</html>

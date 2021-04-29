@@ -7,13 +7,12 @@
 <body>
 <div class="chart"></div>
 
-<script src="createGraph.js">
-</script>
+<script src="createGraph.js"></script>
 <script>
     let node=document.getElementsByClassName('chart')
     let fCharts=new Fcharts()
     fCharts.addDocument(node[0])
-    fCharts.addData([[60,100],[80,20]])
+    fCharts.addData([[60,100],[80,20],[180,10]])
     fCharts.setOptions({lineWidth:5})
 </script>
 
